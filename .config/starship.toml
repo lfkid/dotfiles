@@ -1,0 +1,193 @@
+# configure Starship prompt
+
+
+
+# Prompt
+prompt_order = [
+    "memory_usage",
+    "battery",
+    "time",
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "hg_branch",
+    "docker_context",
+    "kubernetes",
+    "aws",
+    "package",
+    "nodejs",
+    "ruby",
+    "python",
+    "conda",
+    "rust",
+    "golang",
+    "java",
+    "julia",
+    "dotnet",
+    "elixir",
+    "elm",
+    "erlang",
+    "nim",
+    "ocaml",
+    "php",
+    "terraform",
+    "crystal",
+    "zig",
+    "purescript",
+    "nix_shell",
+    "env_var",
+    "cmd_duration",
+    "custom",
+    "line_break",
+    "jobs",
+    "character",
+]
+scan_timeout = 100
+
+# AWS
+[aws]
+disabled = true
+symbol = "  "
+
+# Battery
+[battery]
+disabled = false
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+unknown_symbol="❓"
+empty_symbol="🈳"
+[[battery.display]]
+threshold = 25
+style = "bold #FF0A00"
+[[battery.display]]
+threshold = 98
+style = "bold #FF5A00"
+
+# Character
+[character]
+symbol = "ζ"
+use_symbol_for_status = true
+
+# Command Duration
+[cmd_duration]
+min_time = 3000
+
+# Conda
+[conda]
+symbol = "Conda"
+
+# Crystal
+[crystal]
+disabled = true
+
+# Directory
+[directory]
+truncation_length = 5
+[directory.substitutions]
+
+# Docker Context
+[docker_context]
+disabled = false
+
+# Dotnet
+[dotnet]
+disabled = true
+
+# Elixir
+[elixir]
+disabled = true
+
+# Elm
+[elm]
+disabled = true
+
+# Erlang
+[erlang]
+disabled = true
+
+# Hostname
+[hostname]
+prefix = "⟪"
+suffix = "⟫"
+
+# Jobs
+[jobs]
+symbol = "🌟"
+
+# Kubernetes
+[kubernetes]
+disabled = false
+
+# Line Break
+[line_break]
+disabled = false
+
+# Memory Usage
+[memory_usage]
+disabled = true
+symbol = " "
+show_percentage = true
+threshold = -1
+
+# Mercurial Branch
+[hg_branch]
+disabled = true
+
+# Nim
+[nim]
+disabled = true
+
+# Nix-shell
+[nix_shell]
+disabled = false
+use_name = true
+symbol = "☃️"
+
+# Package Version
+[package]
+disabled = false
+display_private = true
+
+# Ocaml
+[ocaml]
+disabled = true
+
+# PHP
+[php]
+disabled = true
+
+# Python
+[python]
+disabled = false
+pyenv_version_name = true
+
+# Singularity
+[singularity]
+disabled = true
+
+# Terraform
+[terraform]
+disabled = true
+
+# Time
+[time]
+disabled = false
+format = "%T"
+
+# Username
+[username]
+disabled = false
+show_always = false
+
+# Zig
+[zig]
+disabled = true
+
+# PureScript
+[purescript]
+disabled = true
