@@ -1,8 +1,3 @@
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
-
 # configure Spaceship options
 
 # You can specify the order of prompt section using SPACESHIP_PROMPT_ORDER option. Use Zsh array syntax to define your own prompt order.

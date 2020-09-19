@@ -1,10 +1,8 @@
 # configure Starship prompt
 
-
-
 # Prompt
+scan_timeout = 100
 prompt_order = [
-    "memory_usage",
     "battery",
     "time",
     "username",
@@ -15,9 +13,8 @@ prompt_order = [
     "git_state",
     "git_status",
     "hg_branch",
-    "docker_context",
     "kubernetes",
-    "aws",
+    "docker_context",
     "package",
     "nodejs",
     "ruby",
@@ -39,6 +36,8 @@ prompt_order = [
     "zig",
     "purescript",
     "nix_shell",
+    "aws",
+    "memory_usage",
     "env_var",
     "cmd_duration",
     "custom",
@@ -46,12 +45,10 @@ prompt_order = [
     "jobs",
     "character",
 ]
-scan_timeout = 100
 
 # AWS
 [aws]
 disabled = true
-symbol = "  "
 
 # Battery
 [battery]
@@ -59,14 +56,18 @@ disabled = false
 full_symbol = ""
 charging_symbol = ""
 discharging_symbol = ""
-unknown_symbol="❓"
-empty_symbol="🈳"
+unknown_symbol = ""
+empty_symbol = ""
+
 [[battery.display]]
 threshold = 25
 style = "bold #FF0A00"
+
 [[battery.display]]
-threshold = 98
-style = "bold #FF5A00"
+threshold = 99
+style = "bold #F86201"
+
+
 
 # Character
 [character]
@@ -79,7 +80,7 @@ min_time = 3000
 
 # Conda
 [conda]
-symbol = "Conda"
+symbol = "Conda "
 
 # Crystal
 [crystal]
@@ -88,7 +89,6 @@ disabled = true
 # Directory
 [directory]
 truncation_length = 5
-[directory.substitutions]
 
 # Docker Context
 [docker_context]
@@ -105,6 +105,10 @@ disabled = true
 # Elm
 [elm]
 disabled = true
+
+# Environmnet Variable
+[env_var]
+disabled = false
 
 # Erlang
 [erlang]
@@ -129,10 +133,13 @@ disabled = false
 
 # Memory Usage
 [memory_usage]
-disabled = true
-symbol = " "
+disabled = false
 show_percentage = true
+show_swap = true
 threshold = -1
+symbol = " "
+separator = "~"
+style = "bold #B26FCB"
 
 # Mercurial Branch
 [hg_branch]

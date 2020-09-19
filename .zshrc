@@ -71,9 +71,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     autojump
     bgnotify
+    docker
     git-flow-avh
     npm
     osx
+    vagrant
     vscode
     web-search
     yarn
@@ -112,16 +114,17 @@ fi
 
 # proxy
 # clashx proxy
-alias proxy_clash="export HTTP_PROXY=http://127.0.0.1:7890; export HTTPS_PROXY=http://127.0.0.1:7890; export ALL_PROXY=socks5://127.0.0.1:7891"
+alias clashx="export HTTP_PROXY=http://127.0.0.1:7890; export HTTPS_PROXY=http://127.0.0.1:7890; export ALL_PROXY=socks5://127.0.0.1:7891"
 # trojan-qt5 proxy
-alias proxy_trojan="export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837"
+alias trojan_qt5="export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837"
 alias proxy_close="unset HTTP_PROXY; unset HTTPS_PROXY; unset ALL_PROXY"
 
 
 # homebrew
 # Wrap 'brew' to fix the problem of using pyenv with homebrew Homebrew
 alias brew="env PATH='${PATH//$(pyenv root)\/shims:/}' brew"
-alias brewup="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor"
+alias brewup="brew update && brew upgrade && brew upgrade --cask && brew cleanup && brew doctor"
+
 
 
 
@@ -135,8 +138,13 @@ alias brewup="brew update && brew upgrade && brew cask upgrade && brew cleanup &
 # > [Better Shell Experience]
 
 # thefuck
-# eval $(thefuck --alias --enable-experimental-instant-mode)
-eval $(thefuck --alias)
+  # traditional mode
+  eval $(thefuck --alias)
+  # Experimental instant mode
+  # Currently, instant mode only supports Python 3 with bash or zsh.
+  # zsh's autocorrect function also needs to be disabled in order for thefuck to work properly.
+  # eval $(thefuck --alias --enable-experimental-instant-mode)
+
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -144,8 +152,11 @@ eval $(thefuck --alias)
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # load fzf configuration
-source "${HOME}/.config/fzf_config.zsh"
+source "${HOME}/.config/fzf/config.zsh"
 
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+alias lc="colorls -A --sd"
 
 
 
@@ -168,12 +179,18 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 
-# > [Cross Shell Prompt]
-# load Spaceship prompot configuration
-# source "${HOME}/.config/spaceship_config.zsh"
 
-export STARSHIP_CONFIG="$HOME/.config/starship.toml"
-eval "$(starship init zsh)"
+# > [Cross Shell Prompt]
+  # Set Spaceship ZSH as a prompt
+  # autoload -U promptinit; promptinit
+  # prompt spaceship
+  # load Spaceship prompot configuration
+  # source "${HOME}/.config/spaceship/config.zsh"
+  
+  # Set Starship as a prompt
+  # eval "$(starship init zsh)"
+  # load Starship prompt configuration
+  # export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 
 
 

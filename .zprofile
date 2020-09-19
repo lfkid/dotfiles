@@ -22,13 +22,34 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 # ncurses
 # export PATH="/usr/local/opt/ncurses/bin:$PATH"
 
+# gnutls
+# If you are going to use the Guile bindings you will need to add the following
+# to your .bashrc or equivalent in order for Guile to find the TLS certificates database:
+# export GUILE_TLS_CERTIFICATE_DIRECTORY=/usr/local/etc/gnutls/
+
+# guile
+# Guile libraries can now be installed here:
+  # Source files: /usr/local/share/guile/site/3.0
+  # Compiled files: /usr/local/lib/guile/3.0/site-ccache
+  # Extensions: /usr/local/lib/guile/3.0/extensions
+# Add the following to your .bashrc or equivalent:
+  # export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
+  # export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
+  # export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
+
+
+# To use the DocBook package in your XML toolchain,
+# you need to add the following to your ~/.bashrc:
+# export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
+
+
 # homebrew openjdk
 # For the system Java wrappers to find this JDK, symlink it with
 # sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-# openjdk is keg-only, which means it was not symlinked into /usr/local,
-# because it shadows the macOS `java` wrapper.
+# openjdk is keg-only, which means it was not symlinked into /usr/local, because it shadows the macOS `java` wrapper.
 # If you need to have openjdk first in your PATH run:
 # echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
 
 # openssl@1.1
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -47,7 +68,6 @@ eval "$(jenv init -)"
 
 # Android
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
-export STUDIO_JDK="$JDK_HOME"
 export PATH="$ANDROID_SDK_ROOT/tools:$PATH"
 export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
 
