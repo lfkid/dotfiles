@@ -29,3 +29,6 @@ Temporary Items
 
 # git
 .git/
+
+# node
+node_modules/

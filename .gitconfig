@@ -5,7 +5,9 @@
 	ui = true
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesFile = /Users/username/.config/git/.gitignore
+	excludesfile = /Users/username/.config/git/.gitignore
+	autocrlf = false
+	safecrlf = true
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
@@ -25,3 +27,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = master

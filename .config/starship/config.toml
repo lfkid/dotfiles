@@ -1,54 +1,64 @@
 # configure Starship prompt
 
 # Prompt
-scan_timeout = 100
-prompt_order = [
-    "battery",
-    "time",
-    "username",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "hg_branch",
-    "kubernetes",
-    "docker_context",
-    "package",
-    "nodejs",
-    "ruby",
-    "python",
-    "conda",
-    "rust",
-    "golang",
-    "java",
-    "julia",
-    "dotnet",
-    "elixir",
-    "elm",
-    "erlang",
-    "nim",
-    "ocaml",
-    "php",
-    "terraform",
-    "crystal",
-    "zig",
-    "purescript",
-    "nix_shell",
-    "aws",
-    "memory_usage",
-    "env_var",
-    "cmd_duration",
-    "custom",
-    "line_break",
-    "jobs",
-    "character",
-]
+format = """
+$time\
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$battery\
+$memory_usage\
+$aws\
+$gcloud\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+
+
 
 # AWS
 [aws]
 disabled = true
+
 
 # Battery
 [battery]
@@ -64,136 +74,258 @@ threshold = 25
 style = "bold #FF0A00"
 
 [[battery.display]]
-threshold = 99
+threshold = 90
 style = "bold #F86201"
 
+[[battery.display]]
+threshold = 99
+style = "bold #00FF00"
 
 
 # Character
 [character]
-symbol = "ζ"
-use_symbol_for_status = true
+disabled = false
+success_symbol = "[ζ](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[vi](bold green)"
+
+
+# CMake
+[cmake]
+disabled = false
+
 
 # Command Duration
 [cmd_duration]
-min_time = 3000
+disabled = false
+
 
 # Conda
 [conda]
-symbol = "Conda "
+disabled = false
+
 
 # Crystal
 [crystal]
 disabled = true
 
+
+# Dart
+[dart]
+disabled = false
+
+
 # Directory
 [directory]
-truncation_length = 5
+disabled = false
+
 
 # Docker Context
 [docker_context]
 disabled = false
 
+
 # Dotnet
 [dotnet]
 disabled = true
+
 
 # Elixir
 [elixir]
 disabled = true
 
+
 # Elm
 [elm]
 disabled = true
+
 
 # Environmnet Variable
 [env_var]
 disabled = false
 
+
 # Erlang
 [erlang]
 disabled = true
 
+
+# Gcloud
+[gcloud]
+disabled = false
+
+
+# Git Branch
+[git_branch]
+disabled = false
+
+
+# Git Commit
+[git_commit]
+disabled = false
+
+
+# Git State
+[git_state]
+disabled = false
+
+
+# Git status
+[git_status]
+disabled = false
+
+
+# Golang
+[golang]
+disabled = false
+
+
+# Helm
+[helm]
+disabled = true
+
+
 # Hostname
 [hostname]
-prefix = "⟪"
-suffix = "⟫"
+disabled = false
+
+
+# Java
+[java]
+disabled = false
+
 
 # Jobs
 [jobs]
-symbol = "🌟"
+disabled = false
+
+
+# Julia
+[julia]
+disabled = true
+
 
 # Kubernetes
 [kubernetes]
 disabled = false
 
+
 # Line Break
 [line_break]
 disabled = false
 
+
 # Memory Usage
 [memory_usage]
-disabled = false
-show_percentage = true
-show_swap = true
+disabled = true
+format = "$symbol [${ram}( | ${swap})]($style) "
 threshold = -1
-symbol = " "
-separator = "~"
+symbol = ""
 style = "bold #B26FCB"
+
 
 # Mercurial Branch
 [hg_branch]
 disabled = true
 
+
 # Nim
 [nim]
 disabled = true
 
+
 # Nix-shell
 [nix_shell]
 disabled = false
-use_name = true
-symbol = "☃️"
+
+
+# NodeJS
+[nodejs]
+disabled = false
+
 
 # Package Version
 [package]
 disabled = false
 display_private = true
 
+
 # Ocaml
 [ocaml]
 disabled = true
 
+
+# Perl
+[perl]
+disabled = true
+
+
 # PHP
 [php]
 disabled = true
+
 
 # Python
 [python]
 disabled = false
 pyenv_version_name = true
 
+
+# Ruby
+[ruby]
+disabled = false
+
+
+# Rust
+[rust]
+disabled = false
+
+
+# SHLVL
+[shlvl]
+disabled = false
+
+
 # Singularity
 [singularity]
 disabled = true
+
+
+# Swift
+[swift]
+disabled = false
+
+
+# Status
+[status]
+disabled = false
+
 
 # Terraform
 [terraform]
 disabled = true
 
+
 # Time
 [time]
 disabled = false
-format = "%T"
+format = "[$time]($style) "
+
 
 # Username
 [username]
 disabled = false
-show_always = false
+
 
 # Zig
 [zig]
 disabled = true
+
+
+# Custom commands
+[custom]
+disabled = false
+
 
 # PureScript
 [purescript]
