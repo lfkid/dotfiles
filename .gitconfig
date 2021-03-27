@@ -1,18 +1,33 @@
 [user]
-	name = uername
+	name = username
 	email = username@gmail.com
-[color]
-	ui = true
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /Users/username/.config/git/.gitignore
 	autocrlf = false
 	safecrlf = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+	editor = code --wait
+	excludesfile = /Users/username/.config/git/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[gitflow "feature.start"]
+	fetch = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = true
 [color "diff"]
 	meta = 11
 	frag = magenta bold
@@ -20,12 +35,8 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[pull]
-	rebase = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[init]
-	defaultBranch = master
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
